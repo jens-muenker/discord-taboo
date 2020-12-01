@@ -1,0 +1,26 @@
+{
+	"Channel-Settings": {
+	
+		"Join Channel-ID": PLEASE SETUP
+		"Team-1 Channel-ID": PLEASE SETUP
+		"Team-2 Channel-ID": PLEASE SETUP
+		"Add-Terms Channel-ID": PLEASE SETUP
+		"Out-Terms Channel-ID": PLEASE SETUP
+		"Bot-Admin Channel-ID": PLEASE SETUP
+	
+	},
+	"General-Settings": {
+	
+		"Bot-Token": "YOUR BOT ID",
+		"Default-Save-Terms": true
+
+	},
+	"Game-Settings": {
+	
+		"Default-Points-To-Win": 200,
+		"Round-Lenght": 60,
+		"Switching-Lenght": 10,
+		"Min-Players": 2
+	
+	}
+}
