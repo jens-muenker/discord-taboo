@@ -5,6 +5,15 @@ This is now possible with this Python Discord bot.
 
 Define own terms or let the server users add their own terms. Everything is possible. Easy to understand and simple to implement.
 
+## Features
+
+* Players can add terms without the admin -> Create your own version
+* Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist. Later the bot will randomly select 5 out of them when the term comes.
+* Score can be saved. -> Guarantees that a term will not come back until all others have been used.
+* After the win: Graph for the score development
+* Completely freely configurable
+* Pause the game between a team change
+
 ## Installation
 
 **What is needed?**
@@ -45,6 +54,27 @@ The following commands are only for the following channels.
 !tabu shutdown without save         - Shutdown the bot and without saving
 !tabu shutdown with save            - Shutdown the bot and with saving
 ```
+
+## Settings-file
+
+'''
+Join Channel-ID       = Through this channel players can join taboo.
+Team-1 Channel-ID     = Channel for team 1.
+Team-2 Channel-ID     = Channel for team 2.
+Add-Terms Channel-ID  = This channel allows players to add cards on their own. 
+                        Scheme: "Term:forbidden word,forbidden word,..."
+                        When the bot is online, the terms are automatically added to the game.
+                        Otherwise they have to be reloaded with the Load command.
+Out-Terms Channel-ID  = Comes in the future. Please specify the same channel as Add-Terms.
+Bot-Admin Channel-ID  = Channel for the Bot-Admin commands, like shutdown.
+
+Bot-Token             = Your Bot-Token
+Default-Save-Terms    = Should the current state of the term pool etc. be saved when the bot is shut down without further arguments.
+
+Default-Points-To-Win = Points to win
+Round-Lenght          = How long a team gets time to explain until it is the turn of the other team. (Seconds)
+Switching-Lenght      = Time waited between team changes (Seconds)
+Min-Players           = Minimum number of players for the start
 
 ## Wishes for new functions?
 
