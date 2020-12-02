@@ -57,7 +57,7 @@ The following commands are only for the following channels.
 
 ## Settings-file
 
-'''
+```
 Join Channel-ID       = Through this channel players can join taboo.
 Team-1 Channel-ID     = Channel for team 1.
 Team-2 Channel-ID     = Channel for team 2.
@@ -75,6 +75,7 @@ Default-Points-To-Win = Points to win
 Round-Lenght          = How long a team gets time to explain until it is the turn of the other team. (Seconds)
 Switching-Lenght      = Time waited between team changes (Seconds)
 Min-Players           = Minimum number of players for the start
+```
 
 ## Wishes for new functions?
 
