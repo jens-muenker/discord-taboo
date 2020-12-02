@@ -1,6 +1,7 @@
 from random import shuffle
 from random import randrange
 import asyncio
+import copy
 
 import frosch2010_Tabu_variables as fTV
 import frosch2010_Console_Utils as fCU
