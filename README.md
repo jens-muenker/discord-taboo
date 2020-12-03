@@ -1,4 +1,4 @@
-# discord-tabu
+# discord-taboo
 
 Taboo about playing Discord?
 This is now possible with this Python Discord bot.
