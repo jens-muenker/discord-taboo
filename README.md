@@ -8,11 +8,20 @@ Define own terms or let the server users add their own terms. Everything is poss
 ## Features
 
 * Players can add terms without the admin -> Create your own version
+
+![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png?raw=true)
+
 * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist. Later the bot will randomly select 5 out of them when the term comes.
 * Used terms can be saved. -> Guarantees that a term will not come back until all others have been used.
 * After the win: Graph for the score development
 * Completely freely configurable
 * Pause the game between a team change
+
+## Other Screenshots
+
+**Join and start game...**
+
+<img src=https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Start-Taboo.png width="410" height="489">
 
 ## Installation
 
