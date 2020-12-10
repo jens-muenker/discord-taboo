@@ -11,9 +11,13 @@ Define own terms or let the server users add their own terms. Everything is poss
 
 * Players can add terms without the admin 
   * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist.
+  
 * Used terms can be saved. Guarantees that a term will not come back until all others have been used.
+
 * After the win: Graph for the score development
+
 * Completely freely configurable
+
 * Pause the game between a team change
 
 ## Installation
