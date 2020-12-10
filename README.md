@@ -1,17 +1,8 @@
 # discord-taboo
-<table align="right">
-<thead>
-<tr>
-<th><img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="290" width="423" align="right"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png" height="240" width="361" align="right"></td>
-</tr>
-</tbody>
-</table>
-
+<blockquote>
+<img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="290" width="423" align="right">
+<img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png" height="240" width="361" align="right">
+</blockquote>
 
 Taboo about playing Discord?
 This is now possible with this Python Discord bot.
