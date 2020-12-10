@@ -20,6 +20,7 @@ Define own terms or let the server users add their own terms. Everything is poss
 
 * Pause the game between a team change
 
+
 ## Installation
 
 **What is needed?**
