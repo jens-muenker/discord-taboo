@@ -38,7 +38,7 @@ Define own terms or let the server users add their own terms. Everything is poss
 **Everything available?**
 1. Download all files
 2. Set up the bot [(settings-file)](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-settings.txt)
-3. Set up the [language-file](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-language.txt) [(Other languages?)](https://github.com/Frosch2010/discord-taboo/tree/main/other-languages)
+3. Set up the [language-file](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-language.txt) - [(Other languages?)](https://github.com/Frosch2010/discord-taboo/tree/main/other-languages)
 4. Add your own terms [(terms-file)](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-terms.txt)
 5. **And your are ready to play with your friends.**
 
