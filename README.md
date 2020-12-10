@@ -8,6 +8,7 @@ Define own terms or let the server users add their own terms. Everything is poss
 ## Features
 
 <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="290" width="423" align="right">
+
 * The [declarer](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png) and the [opponent team](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/team_react.png) control the game through the Reactions
 
 * [Players can add terms without the admin](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png)
