@@ -1,0 +1,43 @@
+{
+	"Phrases": {
+	
+		"tabu_wrong_arguments": "[USER_ID] du hast dich wohl vertippt?",
+        "tabu_game_already_running": "[USER_ID] es läuft bereits ein Spiel. Bitte warte bis dieses zu Ende ist.",
+        "tabu_no_game_running": "[USER_ID] derzeit läuft kein Spiel.",
+
+        "tabu_more_players_needed": "[USER_ID] es werden mehr Spieler für einen Start benötigt! Mindestens [MIN_PLAYER_COUNT] Spieler sind für einen Start nötig.",
+        "tabu_user_already_joined": "[USER_ID] du bist dem Spiel bereits beigetreten! Warte bis es los geht...",
+        "tabu_user_joined_game": "[USER_ID] du bist dem Spiel beigetreten. [[PLAYER_JOINED_COUNT] Spieler]",
+        "tabu_user_started_game": "[USER_NAME] hat das Spiel gestartet...",
+
+        "tabu_game_paused_by": "Tabu wurde von [USER_ID] pausiert...",
+        "tabu_game_already_paused": "Tabu ist bereits pausiert.",
+        "tabu_game_unpaused_by": "Tabu wurde von [USER_ID] entpausiert...",
+        "tabu_game_is_not_paused": "Tabu ist derzeit nicht pausiert.",
+	
+        "tabu_search_for_new_terms": "[USER_ID] es wird nach neuen Karten geschaut...",
+        "tabu_search_for_new_terms_finished": "[USER_ID] Kartensuche abgeschlossen. [COUNT_NEW_TERMS] neue Karten gefunden.",
+
+        "tabu_time_left": "Verbleibende Zeit: [TIME_LEFT]",
+        "tabu_time_is_up": "Die Zeit ist zu Ende!",
+        "tabu_it_will_start_soon": "Gleich gehts los...",
+        "tabu_it_will_start_in": "Gleich gehts los in: [STARTING_IN]",
+        "tabu_game_paused": "Fortsetzung pausiert...",
+
+        "tabu_team_1_won": "**Team 1 hat gewonnen!**",
+        "tabu_team_2_won": "**Team 2 hat gewonnen!**",
+
+        "tabu_card_term_prefix": "Begriff : ",
+        "tabu_card_term_suffix": "Du darfst die folgenden Begriffe nicht verwenden!",
+
+        "tabu_graph_points": "Punkte",
+        "tabu_graph_points_per_round": "\nPunkte pro Runde\n",
+        "tabu_graph_round": "\nRunde\n",
+
+        "tabu_game_cant_stopped": "[USER_ID] du kannst das Spiel nicht beenden, weil du nicht mitspielst.",
+        "tabu_game_stopped_by": "Das Spiel wurde vorzeitig von [USER_NAME] beendet!",
+
+        "tabu_shutdown_bot": "Der Bot fährt herunter..."
+
+	}
+}
