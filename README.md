@@ -5,23 +5,31 @@ This is now possible with this Python Discord bot.
 
 Define own terms or let the server users add their own terms. Everything is possible. Easy to understand and simple to implement.
 
+![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png?raw=true)
+
 ## Features
 
-* Players can add terms without the admin -> Create your own version
+* Players can add terms without the admin -> Create your own version:
 
     ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png?raw=true)
 
 * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist. Later the bot will randomly select 5 out of them when the term comes.
 * Used terms can be saved. -> Guarantees that a term will not come back until all others have been used.
 * After the win: Graph for the score development
+
+    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png?raw=true)
+
 * Completely freely configurable
-* Pause the game between a team change
+* Pause the game between a team change:
+    
+    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Waiting.png?raw=true)
+    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/PauseGame.png?raw=true)
 
 ## Other Screenshots
 
 **Join and start game...**
 
-<img src=https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Start-Taboo.png width="410" height="489">
+![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png?raw=true)
 
 ## Installation
 
@@ -52,6 +60,7 @@ The following commands are only for the following channels.
 
 **Team-1 & Team-2 Channel:**
 ```
+!tabu stop                          - Stops the game before a team has won
 !tabu pause                         - Pause the game when changing teams
 !tabu unpause                       - Unpause the game when changing teams
 ```
@@ -86,17 +95,9 @@ Switching-Lenght      = Time waited between team changes (Seconds)
 Min-Players           = Minimum number of players for the start
 ```
 
-## Wishes for new functions?
-
+## Wishes, Issues, Help needed?
 Make a pull request. :)
-I try to realize your wishes.
 
-## Issues found?
-Make a pull request.
-I try to fix it as soon as possible.
-
-## Help needed?
-Make a pull request. :D
 
 ## License
 All code is under the [MIT](https://choosealicense.com/licenses/mit/) license.
