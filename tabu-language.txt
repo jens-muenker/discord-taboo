@@ -1,0 +1,43 @@
+{
+	"Phrases": {
+	
+		"tabu_wrong_arguments": "[USER_ID] you must have mistyped?",
+        "tabu_game_already_running": "[USER_ID] there is already a game running. Please wait until it is finished.",
+        "tabu_no_game_running": "[USER_ID] currently no game running.",
+
+        "tabu_more_players_needed": "[USER_ID] more players are needed for a start! At least [MIN_PLAYER_COUNT] players are needed for a start.",
+        "tabu_user_already_joined": "[USER_ID] you have already joined the game! Wait until it starts...",
+        "tabu_user_joined_game": "[USER_ID] you have joined the game. [[PLAYER_JOINED_COUNT] player]",
+        "tabu_user_started_game": "[USER_NAME] has started the game...",
+
+        "tabu_game_paused_by": "Taboo was paused by [USER_ID]...",
+        "tabu_game_already_paused": "Taboo is already paused.",
+        "tabu_game_unpaused_by": "Taboo was de-painted by [USER_ID]...",
+        "tabu_game_is_not_paused": "Taboo is currently not paused.",
+	
+        "tabu_search_for_new_terms": "[USER_ID] it looks for new cards...",
+        "tabu_search_for_new_terms_finished": "[USER_ID] Term search completed. [COUNT_NEW_TERMS] new terms found.",
+
+        "tabu_time_left": "Time remaining: [TIME_LEFT]",
+        "tabu_time_is_up": "The time is over!",
+        "tabu_it_will_start_soon": "It's about to start...",
+        "tabu_it_will_start_in": "In a moment it will start in: [STARTING_IN]",
+        "tabu_game_paused": "Continuation paused...",
+
+        "tabu_team_1_won": "**Team 1 has won!**",
+        "tabu_team_2_won": "**Team 2 has won!**",
+
+        "tabu_card_term_prefix": "Term : ",
+        "tabu_card_term_suffix": "You must not use the following terms!",
+
+        "tabu_graph_points": "Points",
+        "tabu_graph_points_per_round": "\nPoints per round\n",
+        "tabu_graph_round": "\nRound\n",
+
+        "tabu_game_cant_stopped": "[USER_ID] you cannot end the game because you are not playing.",
+        "tabu_game_stopped_by": "The game was ended prematurely by [USER_NAME]!",
+
+        "tabu_shutdown_bot": "The bot shuts down..."
+
+	}
+}
