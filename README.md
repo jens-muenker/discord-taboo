@@ -5,7 +5,7 @@ This is now possible with this Python Discord bot.
 
 Define own terms or let the server users add their own terms. Everything is possible. Easy to understand and simple to implement.
 
-![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png?raw=true)
+<img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="250" width="383">
 
 ## Features
 
@@ -17,17 +17,17 @@ Define own terms or let the server users add their own terms. Everything is poss
 * Used terms can be saved. -> Guarantees that a term will not come back until all others have been used.
 * After the win: Graph for the score development
 
-    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png?raw=true)
+    <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png" height="337" width="465">
 
 * Completely freely configurable
 * Pause the game between a team change:
     
-    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Waiting.png?raw=true)
-    ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/PauseGame.png?raw=true)
+    <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Waiting.png" height="91" width="353">
+    <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/PauseGame.png" height="91" width="353">
 
 ## Other Screenshots
 
-**Join and start game...**
+**Start game...**
 
 ![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png?raw=true)
 
