@@ -16,12 +16,6 @@ Define own terms or let the server users add their own terms. Everything is poss
 * Completely freely configurable
 * Pause the game between a team change:
 
-## Other Screenshots
-
-**Start game...**
-
-![alt text](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png?raw=true)
-
 ## Installation
 
 **What is needed?**
