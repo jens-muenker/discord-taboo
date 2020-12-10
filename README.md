@@ -8,17 +8,20 @@ Define own terms or let the server users add their own terms. Everything is poss
 ## Features
 
 <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="290" width="423" align="right">
+* The [declarer](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png) and the [opponent team](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/team_react.png) control the game through the Reactions
 
-* Players can add terms without the admin 
+* [Players can add terms without the admin](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png)
   * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist.
   
-* Used terms can be saved. Guarantees that a term will not come back until all others have been used.
+* After the win: [Graph for the score development](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png)
+  
+* [Teams](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png) are created randomly  
 
-* After the win: Graph for the score development
+* Used terms can be saved. Guarantees that a term will not come back until all others have been used.
 
 * Completely freely configurable
 
-* Pause the game between a team change
+* [Pause](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/PauseGame.png) and [unpause](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Waiting.png) the game between a team change
 
 
 ## Installation
