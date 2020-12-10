@@ -1,5 +1,4 @@
 # discord-taboo
-<img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png" height="240" width="361" align="right">
 
 Taboo about playing Discord?
 This is now possible with this Python Discord bot.
@@ -7,6 +6,8 @@ This is now possible with this Python Discord bot.
 Define own terms or let the server users add their own terms. Everything is possible. Easy to understand and simple to implement.
 
 ## Features
+
+<img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png" height="240" width="361" align="right">
 
 * Players can add terms without the admin -> Create your own version
 * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist. Later the bot will randomly select 5 out of them when the term comes.
