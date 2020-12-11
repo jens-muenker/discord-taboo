@@ -213,7 +213,7 @@ async def on_message(msg):
 
         if tabuVars.tabu_is_running:
 
-            await msg.channel.send(tabuLanguage.tabu_game_already_running.replace("{}", str(msg.author.id)))
+            await msg.channel.send(tabuLanguage.tabu_game_already_running.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"))
 
             fCU.log_In_Console("{} tried to start a game. Game already running.".format(msg.author.name), "START-COM", "war")
 
