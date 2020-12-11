@@ -13,7 +13,9 @@ Define own terms or let the server users add their own terms. Everything is poss
 
 * [Players can add terms without the admin](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png)
   * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist.
-  
+
+* Multilingual thanks to language file
+
 * After the win: [Graph for the score development](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png)
   
 * [Teams](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png) are created randomly  
