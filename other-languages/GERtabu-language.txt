@@ -18,6 +18,10 @@
         "tabu_search_for_new_terms": "[USER_ID] es wird nach neuen Karten geschaut...",
         "tabu_search_for_new_terms_finished": "[USER_ID] Kartensuche abgeschlossen. [COUNT_NEW_TERMS] neue Karten gefunden.",
 
+        "tabu_false_term_format": "[USER_ID] der Begriff wird nicht hinzugefügt, weil dein Format falsch ist. Benutze: Begriff: Wort, Wort,...",
+
+        "tabu_save": "[USER_ID] Spielstand wird gespeichert...",
+
         "tabu_time_left": "Verbleibende Zeit: [TIME_LEFT]",
         "tabu_time_is_up": "Die Zeit ist zu Ende!",
         "tabu_it_will_start_soon": "Gleich gehts los...",
@@ -36,6 +40,11 @@
 
         "tabu_game_cant_stopped": "[USER_ID] du kannst das Spiel nicht beenden, weil du nicht mitspielst.",
         "tabu_game_stopped_by": "Das Spiel wurde vorzeitig von [USER_NAME] beendet!",
+
+        "tabu_no_kick_user": "[USER_ID] der Spieler wurde nicht gefunden.",
+        "tabu_kick_user_isnt_player": "[USER_ID] der User spielt gar nicht mit.",
+        "tabu_cant_kick_current_explainer": "[USER_ID] der Spieler kann gerade nicht entfernt werden, weil er Begriffe erklären muss. Versuche es nochmal, wenn er keine Begriffe mehr erklären muss.",
+        "tabu_user_kicked": "Der Spieler wurde erfolgreich vom Spiel entfernt",
 
         "tabu_shutdown_bot": "Der Bot fährt herunter..."
 
