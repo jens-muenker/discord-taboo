@@ -12,7 +12,9 @@
 	"General-Settings": {
 	
 		"Bot-Token": "YOUR BOT ID",
-		"Default-Save-Terms": true
+		"Default-Save-Terms": true,
+		"Save after Auto-ADD": true,
+		"Save after Game": true
 
 	},
 	"Game-Settings": {
