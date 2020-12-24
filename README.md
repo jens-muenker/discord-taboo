@@ -64,6 +64,8 @@ The following commands are only for the following channels.
 
 **Bot-Admin Channel:**
 ```
+!tabu save                          - Saves the current game state
+!tabu kick @Playername              - Kicks player out of the game
 !tabu load cards                    - Loads all terms from the Add-Terms Channel (Shutdown the bot once to save it)
 !tabu shutdown                      - Shutdown the bot and saves depending on the settings
 !tabu shutdown without save         - Shutdown the bot and without saving
@@ -85,6 +87,8 @@ Bot-Admin Channel-ID  = Channel for the Bot-Admin commands, like shutdown.
 
 Bot-Token             = Your Bot-Token
 Default-Save-Terms    = Should the current state of the term pool etc. be saved when the bot is shut down without further arguments.
+Save after Auto-ADD   = Automatically saves the terms as soon as a new one is added.
+Save after Game       = Saves the terms and the score after each game played.
 
 Default-Points-To-Win = Points to win
 Round-Lenght          = How long a team gets time to explain until it is the turn of the other team. (Seconds)
