@@ -18,6 +18,10 @@
         "tabu_search_for_new_terms": "[USER_ID] it looks for new cards...",
         "tabu_search_for_new_terms_finished": "[USER_ID] Term search completed. [COUNT_NEW_TERMS] new terms found.",
 
+        "tabu_false_term_format": "[USER_ID] the term is not added because your format is wrong. Use: Term: word, word,...",
+
+        "tabu_save": "[USER_ID] Game state will be saved...",
+
         "tabu_time_left": "Time remaining: [TIME_LEFT]",
         "tabu_time_is_up": "The time is over!",
         "tabu_it_will_start_soon": "It's about to start...",
@@ -36,6 +40,11 @@
 
         "tabu_game_cant_stopped": "[USER_ID] you cannot end the game because you are not playing.",
         "tabu_game_stopped_by": "The game was ended prematurely by [USER_NAME]!",
+
+        "tabu_no_kick_user": "[USER_ID] the player was not found.",
+        "tabu_kick_user_isnt_player": "[USER_ID] the user doesn't play at all.",
+        "tabu_cant_kick_current_explainer": "[USER_ID] the player cannot be removed right now because he has to explain terms. Try again when he doesn't have to explain any more terms.",
+        "tabu_user_kicked": "The player was successfully removed from the game.",
 
         "tabu_shutdown_bot": "The bot shuts down..."
 
