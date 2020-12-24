@@ -5,6 +5,7 @@ import discord
 import frosch2010_Console_Utils as fCU
 import frosch2010_Tabu_other_funtions as fTOF
 import frosch2010_Discord_Utils as fDU
+import frosch2010_Tabu_manage_terms as fTMT
 
 async def on_Reaction_Add(reaction, user, tabuVars, tabuSettings, tabuLanguage, client):
 
@@ -179,6 +180,9 @@ async def on_Reaction_Add(reaction, user, tabuVars, tabuSettings, tabuLanguage, 
 
                 #Vars zuruecksetzen
                 fTOF.reset_all_vars(tabuVars)
+
+                if tabuSettings.tabu_save_after_game:
+                    fTMT.save_terms(tabuVars)
 
                 return
 

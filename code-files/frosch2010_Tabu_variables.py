@@ -21,6 +21,8 @@ class tabu_variables:
     tabu_card_list = []
     tabu_card_pool = []
 
+    lst_Terms_already_loaded = []
+
     tabu_current_time = 60
 
     tabu_is_running = False

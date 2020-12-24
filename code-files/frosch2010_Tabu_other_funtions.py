@@ -2,6 +2,7 @@ import discord
 from random import shuffle
 from random import randrange
 import os
+import sys
 import matplotlib.pyplot as plt, numpy as np
 
 import frosch2010_Tabu_variables as fTV
@@ -148,17 +149,17 @@ async def create_and_send_win_graph(tabuVars, tabuSettings, tabuLanguage, client
 
         plt.grid(True)
 
-        plt.savefig("Stats.png", bbox_inches = "tight", dip = 300)
+        plt.savefig(sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "Stats.png", bbox_inches = "tight", dpi = 300)
 
 
     #An Team-Channels versenden
     channel = client.get_channel(tabuSettings.tabu_channelID_team_1)
-    await channel.send(file=discord.File("Stats.png"))
+    await channel.send(file=discord.File(sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "Stats.png"))
 
     channel = client.get_channel(tabuSettings.tabu_channelID_team_2)
-    await channel.send(file=discord.File("Stats.png"))
+    await channel.send(file=discord.File(sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "Stats.png"))
 
-    os.remove("Stats.png")
+    os.remove(sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "Stats.png")
 
 
 async def send_New_Word_Card(tabuVars, tabuSettings, tabuLanguage, client):

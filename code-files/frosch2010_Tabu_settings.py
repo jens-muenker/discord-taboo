@@ -9,9 +9,12 @@ class tabu_settings:
     tabu_bot_token = None
 
     tabu_default_save_terms = True
+    tabu_save_after_game = True
+    tabu_save_after_auto_add = True
+
     tabu_default_points_to_win = 200
 
     tabu_round_lenght = 60
     tabu_switching_lenght = 10
 
-    tabu_min_players = 2
+    tabu_min_players = 4

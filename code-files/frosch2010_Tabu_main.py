@@ -73,10 +73,44 @@ async def on_message(msg):
         #Automatisch Karte hinzufuegen
         if msg.channel.id == tabuSettings.tabu_channelID_add_terms:
 
-            tabuVars.tabu_card_list.append(str(msg.content).replace(": ", ":").replace(", ", ","))
-            tabuVars.tabu_card_pool.append(str(msg.content).replace(": ", ":").replace(", ", ","))
+            term_array = str(msg.content).replace(": ", ":").replace(", ", ",").split(":")
 
-            fCU.log_In_Console("{} added a new card.".format(str(msg.author.name)), "AUTO-ADD", "inf")
+            if len(term_array) < 2:
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_false_term_format.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel], 3)
+                return
+
+            if not term_array[0] in tabuVars.lst_Terms_already_loaded:
+
+                tabuVars.lst_Terms_already_loaded.append(term_array[0])
+
+                tabuVars.tabu_card_list.append(str(msg.content).replace(": ", ":").replace(", ", ","))
+                tabuVars.tabu_card_pool.append(str(msg.content).replace(": ", ":").replace(", ", ","))
+
+                fCU.log_In_Console("{} added a new term.".format(str(msg.author.name)), "AUTO-ADD", "inf")
+
+            else:
+
+                index = [tabuVars.tabu_card_list.index(card) for card in tabuVars.tabu_card_list if card.startswith(term_array[0])][0]
+
+                term_content = term_array[1].split(",")
+
+                existing_term_content = tabuVars.tabu_card_list[index].split(":")[1]
+
+                new_term = tabuVars.tabu_card_list[index][:]
+
+                for word in term_content:
+
+                    if not word in existing_term_content:
+
+                        new_term += "," + word
+
+                tabuVars.tabu_card_list[index] = new_term
+
+                fCU.log_In_Console("{} add words to a term.".format(str(msg.author.name)), "AUTO-ADD", "inf")
+
+            if tabuSettings.tabu_save_after_auto_add:
+
+                fTMT.save_terms(tabuVars)
 
         return
 
@@ -273,6 +307,64 @@ async def on_message(msg):
 
             await fDU.send_Message_To_Channel(tabuLanguage.tabu_no_game_running.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
 
+
+    #------------------------------------------------------------------------------------------
+    #Tabu-Save - COMMAND
+    elif args[1].lower() == "save" and msg.channel.id == tabuSettings.tabu_channelID_bot_admin:
+
+        await fDU.send_Message_To_Channel(tabuLanguage.tabu_save.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+
+        fCU.log_In_Console("{} saved")
+
+        fTMT.save_terms(tabuVars)
+
+
+    #------------------------------------------------------------------------------------------
+    #Kick-Player - COMMAND
+    elif args[1].lower() == "kick" and msg.channel.id == tabuSettings.tabu_channelID_bot_admin:
+
+        if len(args) > 2:
+
+            if len(msg.mentions) > 0:
+
+                kick_user = client.fetch_user(msg.mentions[0].id)
+
+                if kick_user in tabuVars.tabu_player_list_all:
+
+                    if (tabuVars.tabu_guessing_team_num == 0 and kick_user == tabuVars.tabu_player_list_team_1[tabuVars.tabu_explainer_team_1]) or (tabuVars.tabu_guessing_team_num == 1 and tabuVars.tabu_player_list_team_2[tabuVars.tabu_explainer_team_2]):
+
+                        await fDU.send_Message_To_Channel(tabuLanguage.tabu_cant_kick_current_explainer.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+
+                    else:
+
+                        tabuVars.tabu_player_list_all.remove(kick_user)
+
+                        if kick_user in tabuVars.tabu_player_list_team_1:
+
+                            tabuVars.tabu_player_list_team_1.remove(kick_user)
+
+                        else:
+
+                            tabuVars.tabu_player_list_team_2.remove(kick_user)
+
+
+                        await fDU.send_Message_To_Channel(tabuLanguage.tabu_user_kicked, [msg.channel])
+
+                        fCU.log_In_Console("{} kicked player {}".format(str(msg.author.name), str(kick_user.name)))
+
+                else:
+
+                    await fDU.send_Message_To_Channel(tabuLanguage.tabu_kick_user_isnt_player.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+
+            else:
+
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_no_kick_user.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+
+        else:
+
+            await fDU.send_Message_To_Channel(tabuLanguage.tabu_wrong_arguments.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+
+
     #------------------------------------------------------------------------------------------
     #Load cards - COMMAND
     elif args[1].lower() == "load" and msg.channel.id == tabuSettings.tabu_channelID_bot_admin:
@@ -282,7 +374,7 @@ async def on_message(msg):
             #Argument 2 = cards
             if args[2].lower() == "cards":
 
-                await msg.channel.send(tabuLanguage.tabu_search_for_new_terms.replace("{}", str(msg.author.id)))
+                await msg.channel.send(tabuLanguage.tabu_search_for_new_terms.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"))
                 fCU.log_In_Console("{} started loading process for new cards...".format(msg.author.name), "LOAD-COM", "inf")
 
 

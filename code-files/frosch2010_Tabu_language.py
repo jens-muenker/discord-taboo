@@ -18,6 +18,10 @@ class tabu_language:
     tabu_search_for_new_terms = ""
     tabu_search_for_new_terms_finished = ""
 
+    tabu_false_term_format = ""
+
+    tabu_save = ""
+
     tabu_time_left = ""
     tabu_time_is_up = ""
     tabu_it_will_start_soon = ""
@@ -36,5 +40,10 @@ class tabu_language:
 
     tabu_game_cant_stopped = ""
     tabu_game_stopped_by = ""
+
+    tabu_no_kick_user = ""
+    tabu_kick_user_isnt_player = ""
+    tabu_cant_kick_current_explainer = ""
+    tabu_user_kicked = ""
 
     tabu_shutdown_bot = ""

@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 
 import frosch2010_Console_Utils as fCU
@@ -9,7 +10,7 @@ def load_language(tabuLanguage, file_path=None):
 
     if not file_path:
 
-        file_path = "tabu-language.txt"
+        file_path = sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "tabu-language.txt"
 
     
     if os.path.isfile(file_path):
@@ -48,6 +49,10 @@ def load_language(tabuLanguage, file_path=None):
                 tabuLanguage.tabu_search_for_new_terms = str(data["Phrases"]["tabu_search_for_new_terms"])
                 tabuLanguage.tabu_search_for_new_terms_finished = str(data["Phrases"]["tabu_search_for_new_terms_finished"])
 
+                tabuLanguage.tabu_false_term_format = str(data["Phrases"]["tabu_false_term_format"])
+
+                tabuLanguage.tabu_save = str(data["Phrases"]["tabu_save"])
+
                 tabuLanguage.tabu_time_left = str(data["Phrases"]["tabu_time_left"])
                 tabuLanguage.tabu_time_is_up = str(data["Phrases"]["tabu_time_is_up"])
                 tabuLanguage.tabu_it_will_start_soon = str(data["Phrases"]["tabu_it_will_start_soon"])
@@ -66,6 +71,11 @@ def load_language(tabuLanguage, file_path=None):
 
                 tabuLanguage.tabu_game_cant_stopped = str(data["Phrases"]["tabu_game_cant_stopped"])
                 tabuLanguage.tabu_game_stopped_by = str(data["Phrases"]["tabu_game_stopped_by"])
+
+                tabuLanguage.tabu_no_kick_user = str(data["Phrases"]["tabu_no_kick_user"])
+                tabuLanguage.tabu_kick_user_isnt_player = str(data["Phrases"]["tabu_kick_user_isnt_player"])
+                tabuLanguage.tabu_cant_kick_current_explainer = str(data["Phrases"]["tabu_cant_kick_current_explainer"])
+                tabuLanguage.tabu_user_kicked = str(data["Phrases"]["tabu_user_kicked"])
 
                 tabuLanguage.tabu_shutdown_bot = str(data["Phrases"]["tabu_shutdown_bot"])
 

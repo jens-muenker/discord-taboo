@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 
 import frosch2010_Tabu_variables as fTV
@@ -12,7 +13,7 @@ def load_terms(tabuVars, file_path=None):
 
     if not file_path:
 
-        file_path = "tabu-terms.txt"
+        file_path = sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "tabu-terms.txt"
 
 
     if os.path.isfile(file_path):
@@ -32,6 +33,15 @@ def load_terms(tabuVars, file_path=None):
         fCU.log_In_Console("{} terms loaded in deck.".format(str(len(tabuVars.tabu_card_list))), "LOAD-TERMS", "inf")
         fCU.log_In_Console("{} terms loaded in pool.".format(str(len(tabuVars.tabu_card_pool))), "LOAD-TERMS", "inf")
 
+        fCU.log_In_Console("Load terms in loaded-list...", "LOAD-TERMS", "inf")
+
+        #Alte Karten in vorhanden laden
+        for term in tabuVars.tabu_card_list:
+
+            tabuVars.lst_Terms_already_loaded.append(term.lower().split(":")[0])
+
+        fCU.log_In_Console("Loaded terms in loaded-list.", "LOAD-TERMS", "inf")
+
     else:
 
         fCU.log_In_Console("No terms-file found! Load terms from channel before you start playing.", "LOAD-TERMS", "war")
@@ -43,7 +53,7 @@ def save_terms(tabuVars, file_path=None):
 
     if not file_path:
 
-        file_path = "tabu-terms.txt"
+        file_path = sys.argv[0].replace(os.path.basename(sys.argv[0]), "") + "tabu-terms.txt"
 
 
     fCU.log_In_Console("Saving deck and pool...", "SAVE-TERMS", "inf")
@@ -55,15 +65,19 @@ def save_terms(tabuVars, file_path=None):
     for str_Term in tabuVars.tabu_card_list:
 
         term_array = str_Term.split(":")
+        
+        if len(term_array) == 2:
 
-        data["Term-List"][term_array[0]] = term_array[1]
+            data["Term-List"][term_array[0]] = term_array[1]
 
 
     for str_Term in tabuVars.tabu_card_pool:
 
         term_array = str_Term.split(":")
 
-        data["Term-Pool"][term_array[0]] = term_array[1]
+        if len(term_array) == 2:
+
+            data["Term-Pool"][term_array[0]] = term_array[1]
 
 
     with open(file_path, "w", encoding="UTF-8") as outfile:
