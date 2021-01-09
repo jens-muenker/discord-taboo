@@ -38,7 +38,7 @@ def load_terms(tabuVars, file_path=None):
         #Alte Karten in vorhanden laden
         for term in tabuVars.tabu_card_list:
 
-            tabuVars.lst_Terms_already_loaded.append(term.lower().split(":")[0])
+            tabuVars.lst_Terms_already_loaded.append(term.split(":")[0])
 
         fCU.log_In_Console("Loaded terms in loaded-list.", "LOAD-TERMS", "inf")
 
