@@ -339,7 +339,7 @@ async def on_message(msg):
 
                         tabuVars.tabu_player_list_all.remove(kick_user)
 
-                        if kick_user in tabuVars.tabu_player_list_team_1:j
+                        if kick_user in tabuVars.tabu_player_list_team_1:
 
                             tabuVars.tabu_player_list_team_1.remove(kick_user)
 
