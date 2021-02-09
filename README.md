@@ -86,6 +86,7 @@ Out-Terms Channel-ID  = Comes in the future. Please specify the same channel as 
 Bot-Admin Channel-ID  = Channel for the Bot-Admin commands, like shutdown.
 
 Bot-Token             = Your Bot-Token
+Server-ID             = Server-ID/Guild-ID
 Default-Save-Terms    = Should the current state of the term pool etc. be saved when the bot is shut down without further arguments.
 Save after Auto-ADD   = Automatically saves the terms as soon as a new one is added.
 Save after Game       = Saves the terms and the score after each game played.
