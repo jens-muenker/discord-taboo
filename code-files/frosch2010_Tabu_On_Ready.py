@@ -22,7 +22,7 @@ def check_bot_permissions(tabuSettings, client):
 
 
     #Check Channel Join exists
-    if discord.utils.get(client.get_guild(347451773289758730).text_channels, id=tabuSettings.tabu_channelID_join) is None:
+    if discord.utils.get(client.get_guild(tabuSettings.tabu_server_ID).text_channels, id=tabuSettings.tabu_channelID_join) is None:
 
         is_all_ready = False
 

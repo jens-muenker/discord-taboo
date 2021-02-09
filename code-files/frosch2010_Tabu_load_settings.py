@@ -38,6 +38,7 @@ def load_settings(tabuSettings, file_path=None):
                 tabuSettings.tabu_channelID_bot_admin = int(data["Channel-Settings"]["Bot-Admin Channel-ID"])
                 
                 tabuSettings.tabu_bot_token = str(data["General-Settings"]["Bot-Token"])
+                tabuSettings.tabu_server_ID = int(data["General-Settings"]["Server-ID"])
                 tabuSettings.tabu_default_save_terms = bool(data["General-Settings"]["Default-Save-Terms"])
                 tabuSettings.tabu_save_after_auto_add = bool(data["General-Settings"]["Save after Auto-ADD"])
                 tabuSettings.tabu_save_after_game = bool(data["General-Settings"]["Save after Game"])
