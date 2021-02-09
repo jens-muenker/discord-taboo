@@ -30,7 +30,7 @@ tabuLanguage = frosch2010_Tabu_language.tabu_language()
 #Create Discord-Client
 #-----------------------------------------------------
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
 
@@ -209,7 +209,7 @@ async def on_message(msg):
 
             fCU.log_In_Console("{} tried to pause a game, but currently no game is running.".format(str(msg.author.name)), "PAUSE-COM", "war")
 
-            await fDU.send_Message_To_Channel(tabu_no_game_running.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
+            await fDU.send_Message_To_Channel(tabuLanguage.tabu_no_game_running.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel])
 
 
     #----------------------------------------------------------------------------------------------------------------------------------------------------
