@@ -12,6 +12,7 @@
 	"General-Settings": {
 	
 		"Bot-Token": "YOUR BOT ID",
+		"Server-ID": YOUR SERVER ID,
 		"Default-Save-Terms": true,
 		"Save after Auto-ADD": true,
 		"Save after Game": true
