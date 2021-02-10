@@ -34,12 +34,12 @@ def check_bot_permissions(tabuSettings, client):
 
 
         #Check Permissions
-        if not channel_join.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).view_channel:
+        if not channel_join.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).view_channel:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read in the channel 'channelID_join'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_join.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).send_messages:
+        if not channel_join.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).send_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send messages in the channel 'channelID_join'!", "CHECK-PERMISSIONS", "err")
@@ -47,7 +47,7 @@ def check_bot_permissions(tabuSettings, client):
 
 
     #Check Channel Team-1 exists
-    if discord.utils.get(client.get_guild(347451773289758730).text_channels, id=tabuSettings.tabu_channelID_team_1) is None:
+    if discord.utils.get(client.get_guild(tabuSettings.tabu_server_ID).text_channels, id=tabuSettings.tabu_channelID_team_1) is None:
 
         is_all_ready = False
 
@@ -59,32 +59,32 @@ def check_bot_permissions(tabuSettings, client):
 
 
         #Check Permissions
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).view_channel:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).view_channel:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).send_messages:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).send_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send messages in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).manage_messages:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).manage_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to manage messages in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).read_message_history:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).read_message_history:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read old messages in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).add_reactions:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).add_reactions:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to add reactions in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_1.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).attach_files:
+        if not channel_team_1.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).attach_files:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send files in the channel 'tabu_channelID_team_1'!", "CHECK-PERMISSIONS", "err")
@@ -92,7 +92,7 @@ def check_bot_permissions(tabuSettings, client):
 
 
     #Check Channel Team-2 exists
-    if discord.utils.get(client.get_guild(347451773289758730).text_channels, id=tabuSettings.tabu_channelID_team_2) is None:
+    if discord.utils.get(client.get_guild(tabuSettings.tabu_server_ID).text_channels, id=tabuSettings.tabu_channelID_team_2) is None:
 
         is_all_ready = False
 
@@ -104,32 +104,32 @@ def check_bot_permissions(tabuSettings, client):
 
 
         #Check Permissions
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).view_channel:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).view_channel:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).send_messages:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).send_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send messages in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).manage_messages:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).manage_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to manage messages in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).read_message_history:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).read_message_history:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read old messages in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).add_reactions:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).add_reactions:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to add reactions in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_team_2.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).attach_files:
+        if not channel_team_2.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).attach_files:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send files in the channel 'tabu_channelID_team_2'!", "CHECK-PERMISSIONS", "err")
@@ -137,7 +137,7 @@ def check_bot_permissions(tabuSettings, client):
 
 
     #Check Channel Add-Terms exists
-    if discord.utils.get(client.get_guild(347451773289758730).text_channels, id=tabuSettings.tabu_channelID_add_terms) is None:
+    if discord.utils.get(client.get_guild(tabuSettings.tabu_server_ID).text_channels, id=tabuSettings.tabu_channelID_add_terms) is None:
 
         is_all_ready = False
 
@@ -148,7 +148,7 @@ def check_bot_permissions(tabuSettings, client):
         channel_add_terms = client.get_channel(tabuSettings.tabu_channelID_add_terms)
 
         #Check Permissions
-        if not channel_add_terms.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).view_channel:
+        if not channel_add_terms.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).view_channel:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read in the channel 'tabu_channelID_add_terms'!", "CHECK-PERMISSIONS", "err")
@@ -156,7 +156,7 @@ def check_bot_permissions(tabuSettings, client):
 
 
     #Check Channel Bot-Admin exists
-    if discord.utils.get(client.get_guild(347451773289758730).text_channels, id=tabuSettings.tabu_channelID_bot_admin) is None:
+    if discord.utils.get(client.get_guild(tabuSettings.tabu_server_ID).text_channels, id=tabuSettings.tabu_channelID_bot_admin) is None:
 
         is_all_ready = False
 
@@ -168,12 +168,12 @@ def check_bot_permissions(tabuSettings, client):
 
 
         #Check Permissions
-        if not channel_bot_admin.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).view_channel:
+        if not channel_bot_admin.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).view_channel:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to read in the channel 'tabu_channelID_bot_admin'!", "CHECK-PERMISSIONS", "err")
 
-        if not channel_bot_admin.permissions_for(client.get_guild(347451773289758730).get_member(client.user.id)).send_messages:
+        if not channel_bot_admin.permissions_for(client.get_guild(tabuSettings.tabu_server_ID).get_member(client.user.id)).send_messages:
 
             is_all_ready = False
             fCU.log_In_Console("Bot has not permssions to send messages in the channel 'tabu_channelID_bot_admin'!", "CHECK-PERMISSIONS", "err")
