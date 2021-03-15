@@ -11,11 +11,12 @@
 	},
 	"General-Settings": {
 	
-		"Bot-Token": "YOUR BOT ID",
-		"Server-ID": YOUR SERVER ID,
+		"Bot-Token": YOUR BOT TOKEN,
+		"Server-ID": YOUR GUILD ID,
 		"Default-Save-Terms": true,
 		"Save after Auto-ADD": true,
-		"Save after Game": true
+		"Save after Game": true,
+		"Message-Auto-Delete-Time": 10
 
 	},
 	"Game-Settings": {
