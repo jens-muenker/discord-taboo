@@ -19,10 +19,17 @@
         "tabu_search_for_new_terms_finished": "[USER_ID] Kartensuche abgeschlossen. [COUNT_NEW_TERMS] neue Karten gefunden.",
 
         "tabu_false_term_format": "[USER_ID] der Begriff wird nicht hinzugefügt, weil dein Format falsch ist. Benutze: Begriff: Wort, Wort,...",
+        "tabu_false_edit_term_format": "[USER_ID] du hast wohl etwas vergessen? Nutze '!edit [Begriff]'.",
+        "tabu_edit_term_not_exist": "[USER_ID] diesen Begriff gibt es nicht! Vielleicht vertippt?",
+        "tabu_edit_term_has_an_editor": "[USER_ID] dieser Begriff wird derzeit von [EDITOR_ID] bearbeitet. Warte bitte bis die Bearbeitung abgeschlossen wurde.",
+        "tabu_edit_description": "Wähle eine der Reactions aus",
+        "tabu_edit_word": "Bitte gebe wie folgt den Begriff ein:\naltes Wort=:=neues Wort\n\nBeachte dabei die Groß- & Kleinschreibung!",
+        "tabu_edit_delete_word": "Bitte gebe jetzt das zu löschende Wort ein. Beachte dabei die Groß- & Kleinschreibung!",
+        "tabu_edit_sure_delete_card": "Bist du dir sicher, dass du die Karte löschen möchtest?",
 
         "tabu_save": "[USER_ID] Spielstand wird gespeichert...",
 
-        "tabu_time_left": "Verbleibende Zeit: [TIME_LEFT]",
+        "tabu_time_left": "Verbleibende Zeit: [TIME_LEFT]\n\nPunkte:\n**Team-**1️⃣: **[POINTS_TEAM_1]**\n**Team-**2️⃣: **[POINTS_TEAM_2]**\n",
         "tabu_time_is_up": "Die Zeit ist zu Ende!",
         "tabu_it_will_start_soon": "Gleich gehts los...",
         "tabu_it_will_start_in": "Gleich gehts los in: [STARTING_IN]",
@@ -46,7 +53,13 @@
         "tabu_cant_kick_current_explainer": "[USER_ID] der Spieler kann gerade nicht entfernt werden, weil er Begriffe erklären muss. Versuche es nochmal, wenn er keine Begriffe mehr erklären muss.",
         "tabu_user_kicked": "Der Spieler wurde erfolgreich vom Spiel entfernt",
 
-        "tabu_shutdown_bot": "Der Bot fährt herunter..."
+        "tabu_shutdown_bot": "Der Bot fährt herunter...",
+
+        "tabu_revenge_asking": "[ASKING_USER_NAME] hat eine Revanche angefordert.\n Nutze die Reactions, um mitzuteilen ob du an einer Revanche teilnehmen würdest.\nSollten in [REMAINING_TIME] Sekunden nicht alle Spieler zugestimmt haben, findet keine Revanche statt.",
+        "tabu_revenge_starting": "Es haben alle zugestimmt. Die Revanche startet jetzt!",
+        "tabu_revenge_canceled": "Es haben nicht alle einer Revanche zugestimmt. Daher wird diese nicht stattfinden.",
+
+        "tabu_same_chance": "Team-[TEAM_NUM] bekommt eine Chance zum Gewinn, da sie nicht angefangen haben."
 
 	}
 }
