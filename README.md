@@ -13,10 +13,13 @@ Define own terms or let the server users add their own terms. Everything is poss
 
 * [Players can add terms without the admin](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/ADD-Terms.png)
   * Automatic check whether a term already exists. If so, the forbidden words are added to the term, if they do not exist.
+  * Edit-System: Even afterwards, the terms can be edited or deleted again via the Add-Terms channel.
 
 * Multilingual thanks to language file
 
 * After the win: [Graph for the score development](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/win_graph.png)
+  
+* Revenges with the same teams are possible
   
 * [Teams](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/start_message.png) are created randomly  
 
@@ -36,9 +39,10 @@ Define own terms or let the server users add their own terms. Everything is poss
 **Which Python packages are needed?**
 * discord 1.5.X
 * matplotlib
+* termcolor
 
 **Everything available?**
-1. Download all files
+1. Download all files and copy all into the same folder
 2. Set up the bot [(settings-file)](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-settings.txt)
 3. Set up the [language-file](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-language.txt) - [(Other languages?)](https://github.com/Frosch2010/discord-taboo/tree/main/other-languages)
 4. Add your own terms [(terms-file)](https://github.com/Frosch2010/discord-taboo/blob/main/tabu-terms.txt)
@@ -57,9 +61,15 @@ The following commands are only for the following channels.
 
 **Team-1 & Team-2 Channel:**
 ```
+!tabu revanche                      - Starts a vote on whether there should be a rematch
 !tabu stop                          - Stops the game before a team has won
 !tabu pause                         - Pause the game when changing teams
 !tabu unpause                       - Unpause the game when changing teams
+```
+
+**Add-Terms Channel:**
+```
+!edit [term]                        - Calls the edit menu, through which a term can be edited
 ```
 
 **Bot-Admin Channel:**
@@ -70,6 +80,16 @@ The following commands are only for the following channels.
 !tabu shutdown                      - Shutdown the bot and saves depending on the settings
 !tabu shutdown without save         - Shutdown the bot and without saving
 !tabu shutdown with save            - Shutdown the bot and with saving
+```
+
+## Edit-System
+
+The Edit system is operated with the help of Reactions. The following emojis are available for the following operation:
+```
+✏️ = Edit the term or a forbidden word
+✂️ = Delete a forbidden word
+🗑 = Delete the term
+✅ = Press this reaction as soon as you are done with the edit
 ```
 
 ## Settings-file
@@ -90,6 +110,7 @@ Server-ID             = Server-ID/Guild-ID
 Default-Save-Terms    = Should the current state of the term pool etc. be saved when the bot is shut down without further arguments.
 Save after Auto-ADD   = Automatically saves the terms as soon as a new one is added.
 Save after Game       = Saves the terms and the score after each game played.
+Message-Auto-Delete-Time = After how many seconds messages should be deleted automatically. (For example, if an argument was forgotten in a command).
 
 Default-Points-To-Win = Points to win
 Round-Lenght          = How long a team gets time to explain until it is the turn of the other team. (Seconds)
