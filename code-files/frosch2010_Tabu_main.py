@@ -304,14 +304,12 @@ async def on_message(msg):
     #TEMP - REVANCHE - COMMAND
     elif args[1].lower() == "revanche" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_2):
 
-        print("1")
         tabuVars.tabu_revenge_question = True
         tabuVars.tabu_revenge_asking_player_msg = msg
         tabuVars.tabu_revenge_time = tabuSettings.tabu_revenge_time
 
         team_channels = [client.get_channel(tabuSettings.tabu_channelID_team_1), client.get_channel(tabuSettings.tabu_channelID_team_2)]
 
-        print("2")
         for team in team_channels:
 
             botMessage = await team.send(tabuLanguage.tabu_revenge_asking.replace("[ASKING_USER_NAME]", tabuVars.tabu_revenge_asking_player_msg.author.name).replace("[REMAINING_TIME]", str(tabuVars.tabu_revenge_time)))
@@ -321,9 +319,7 @@ async def on_message(msg):
 
             tabuVars.tabu_revenge_msgs.append(botMessage)
 
-        print("3")
         fCLU.Timer(1, fTRT.revenge_timer, [tabuVars, tabuSettings, tabuLanguage, client])
-        print("4")
 
         return
 
