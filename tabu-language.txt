@@ -19,10 +19,17 @@
         "tabu_search_for_new_terms_finished": "[USER_ID] Term search completed. [COUNT_NEW_TERMS] new terms found.",
 
         "tabu_false_term_format": "[USER_ID] the term is not added because your format is wrong. Use: Term: word, word,...",
+        "tabu_false_edit_term_format": "[USER_ID] you must have forgotten something? Use '!edit [term]'.",
+        "tabu_edit_term_not_exist": "[USER_ID] this term does not exist! Maybe mistyped?",
+        "tabu_edit_term_has_an_editor": "[USER_ID] this term is currently being edited by [EDITOR_ID]. Please wait until the editing has been completed.",
+        "tabu_edit_description": "Choose one reaction",
+        "tabu_edit_word": "Please enter the term as follows:\nold word=:=new word\n\nPlease note the upper & lower case!",
+        "tabu_edit_delete_word": "Please enter now the word you want to delete. Please note the upper & lower case!",
+        "tabu_edit_sure_delete_card": "Are you sure you want to delete the card?",
 
         "tabu_save": "[USER_ID] Game state will be saved...",
 
-        "tabu_time_left": "Time remaining: [TIME_LEFT]",
+        "tabu_time_left": "Time remaining: [TIME_LEFT]\n\nPoints: Team-1: [POINTS_TEAM_1] Team-2: [POINTS_TEAM_2]",
         "tabu_time_is_up": "The time is over!",
         "tabu_it_will_start_soon": "It's about to start...",
         "tabu_it_will_start_in": "In a moment it will start in: [STARTING_IN]",
@@ -46,7 +53,13 @@
         "tabu_cant_kick_current_explainer": "[USER_ID] the player cannot be removed right now because he has to explain terms. Try again when he doesn't have to explain any more terms.",
         "tabu_user_kicked": "The player was successfully removed from the game.",
 
-        "tabu_shutdown_bot": "The bot shuts down..."
+        "tabu_shutdown_bot": "The bot shuts down...",
 
+        "tabu_revenge_asking": "[ASKING_USER_NAME] has requested a revenge.\n Use the Reactions to tell if you would participate in a revenge.\nIf in [REMAINING_TIME] seconds not all players have agreed, no revenge will take place.",
+        "tabu_revenge_starting": "All have agreed. The revenge starts now!",
+        "tabu_revenge_canceled": "Not all of them have agreed to a rematch. Therefore, this will not take place. All have agreed. The revenge starts now!",
+
+        "tabu_same_chance": "Team-[TEAM_NUM] gets a chance to win since they didn't start."
+		
 	}
 }
