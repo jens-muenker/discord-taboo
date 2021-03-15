@@ -5,6 +5,8 @@ import copy
 import frosch2010_Console_Utils as fCU
 import frosch2010_Class_Utils as fCLU
 import frosch2010_Tabu_other_funtions as fTOF
+import frosch2010_Tabu_win_manager as fTWM
+
 
 async def manage_timer(tabuVars, tabuSettings, tabuLanguage, client):
 
@@ -18,10 +20,11 @@ async def manage_timer(tabuVars, tabuSettings, tabuLanguage, client):
     
     #Print Countdown to all
     for countdown in tabuVars.tabu_time_messages:
-
         if tabuVars.tabu_is_running:
-
-            await countdown.edit(content=tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)))
+            if tabuVars.tabu_is_chance or tabuVars.tabu_was_chance:
+                await countdown.edit(content=tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)).replace("[POINTS_TEAM_1]", str(tabuVars.tabu_points_team_1)).replace("[POINTS_TEAM_2]", str(tabuVars.tabu_points_team_2)) + "\n\n" + tabuVars.tabu_chance_team.replace("[TEAM_NUM]", "2"))
+            else:
+                await countdown.edit(content=tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)).replace("[POINTS_TEAM_1]", str(tabuVars.tabu_points_team_1)).replace("[POINTS_TEAM_2]", str(tabuVars.tabu_points_team_2)))
 
 
     #Ist die Zeit fuers Team abgelaufen?
@@ -49,6 +52,27 @@ async def manage_timer(tabuVars, tabuSettings, tabuLanguage, client):
         else:
 
             await tabuVars.tabu_player_list_team_2[tabuVars.tabu_explainer_team_2].send(tabuLanguage.tabu_time_is_up, delete_after=4)
+
+
+        if tabuVars.tabu_is_chance and tabuVars.tabu_was_chance:
+
+            if tabuVars.tabu_guessing_team_num == 0:
+                tabuVars.tabu_points_history_team_1.append(tabuVars.tabu_points_this_round)
+            else:
+                tabuVars.tabu_points_history_team_2.append(tabuVars.tabu_points_this_round)
+
+
+            if tabuVars.tabu_points_team_1 > tabuVars.tabu_points_team_2:
+                await fTWM.team_1_won(tabuVars, tabuLanguage, tabuSettings, client)
+
+            else:
+                await fTWM.team_2_won(tabuVars, tabuLanguage, tabuSettings, client)
+
+            return
+
+
+        elif tabuVars.tabu_is_chance:
+            tabuVars.tabu_was_chance = True
 
 
         #Teamwechsel

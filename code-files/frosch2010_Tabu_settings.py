@@ -7,6 +7,7 @@ class tabu_settings:
     tabu_channelID_bot_admin = None
 
     tabu_bot_token = None
+    tabu_server_ID = None
 
     tabu_default_save_terms = True
     tabu_save_after_game = True
@@ -18,3 +19,11 @@ class tabu_settings:
     tabu_switching_lenght = 10
 
     tabu_min_players = 4
+
+    tabu_message_auto_delete = 10
+
+
+    tabu_revenge_time = 30
+
+
+    tabu_same_chance = True

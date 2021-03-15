@@ -50,6 +50,13 @@ def load_language(tabuLanguage, file_path=None):
                 tabuLanguage.tabu_search_for_new_terms_finished = str(data["Phrases"]["tabu_search_for_new_terms_finished"])
 
                 tabuLanguage.tabu_false_term_format = str(data["Phrases"]["tabu_false_term_format"])
+                tabuLanguage.tabu_false_edit_term_format = str(data["Phrases"]["tabu_false_edit_term_format"])
+                tabuLanguage.tabu_edit_term_not_exist = str(data["Phrases"]["tabu_edit_term_not_exist"])
+                tabuLanguage.tabu_edit_term_has_an_editor = str(data["Phrases"]["tabu_edit_term_has_an_editor"])
+                tabuLanguage.tabu_edit_description = str(data["Phrases"]["tabu_edit_description"])
+                tabuLanguage.tabu_edit_word = str(data["Phrases"]["tabu_edit_word"])
+                tabuLanguage.tabu_edit_delete_word = str(data["Phrases"]["tabu_edit_delete_word"])
+                tabuLanguage.tabu_edit_sure_delete_card = str(data["Phrases"]["tabu_edit_sure_delete_card"])
 
                 tabuLanguage.tabu_save = str(data["Phrases"]["tabu_save"])
 
@@ -78,6 +85,14 @@ def load_language(tabuLanguage, file_path=None):
                 tabuLanguage.tabu_user_kicked = str(data["Phrases"]["tabu_user_kicked"])
 
                 tabuLanguage.tabu_shutdown_bot = str(data["Phrases"]["tabu_shutdown_bot"])
+
+                tabuLanguage.tabu_revenge_asking = str(data["Phrases"]["tabu_revenge_asking"])
+                tabuLanguage.tabu_revenge_starting = str(data["Phrases"]["tabu_revenge_starting"])
+                tabuLanguage.tabu_revenge_canceled = str(data["Phrases"]["tabu_revenge_canceled"])
+
+
+                tabuLanguage.tabu_same_chance = str(data["Phrases"]["tabu_same_chance"])
+
 
             except Exception as error:
 

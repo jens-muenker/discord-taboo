@@ -1,3 +1,4 @@
+from frosch2010_Tabu_settings import tabu_settings
 import discord
 from random import shuffle
 from random import randrange
@@ -54,6 +55,7 @@ async def send_Card_To_Team(card, tabuVars, tabuSettings, tabuLanguage, client):
     embed = discord.Embed(title=tabuLanguage.tabu_card_term_prefix + card_subject[0], description=tabuLanguage.tabu_card_term_suffix, color=0x22a7f0)
     embed.add_field(name="###############################", value=card_subject_words, inline=True)
 
+
     botMessage = await channel.send(embed=embed)
 
     await botMessage.add_reaction("✅")
@@ -84,14 +86,15 @@ async def send_Team_Countdowns(tabuVars, tabuSettings, tabuLanguage, client):
     #Team 1
     channel_team_1 = client.get_channel(tabuSettings.tabu_channelID_team_1)
 
-    team_1_countdown = await channel_team_1.send(tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)))
+    team_1_countdown = await channel_team_1.send(tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)).replace("[POINTS_TEAM_1]", str(tabuVars.tabu_points_team_1)).replace("[POINTS_TEAM_2]", str(tabuVars.tabu_points_team_2)))
+
 
     tabuVars.tabu_time_messages.append(team_1_countdown)
 
     #Team 2
     channel_team_2 = client.get_channel(tabuSettings.tabu_channelID_team_2)
 
-    team_2_countdown = await channel_team_2.send(tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)))
+    team_2_countdown = await channel_team_2.send(tabuLanguage.tabu_time_left.replace("[TIME_LEFT]", str(tabuVars.tabu_current_time)).replace("[POINTS_TEAM_1]", str(tabuVars.tabu_points_team_1)).replace("[POINTS_TEAM_2]", str(tabuVars.tabu_points_team_2)))
 
     tabuVars.tabu_time_messages.append(team_2_countdown)
 
@@ -130,6 +133,8 @@ async def create_and_send_win_graph(tabuVars, tabuSettings, tabuLanguage, client
         plt.plot(x_axis_team_1, tabuVars.tabu_points_history_team_1, label = "Team 1")
         plt.plot(x_axis_team_2, tabuVars.tabu_points_history_team_2, label = "Team 2")
 
+        print(tabuVars.tabu_points_history_team_1)
+        print(tabuVars.tabu_points_history_team_2)
 
         #X-Achsenbeschriftung festlegen
         if len(x_axis_team_1) >= len(x_axis_team_2):
@@ -327,9 +332,12 @@ def reset_all_vars(tabuVars):
     tabuVars.tabu_guessing_card_messages = []
     tabuVars.tabu_time_messages = []
 
-    tabu_is_running = False
-    tabu_is_pause = False
-    tabu_is_switching = False
-    tabu_is_raeacting = False
+    tabuVars.tabu_is_running = False
+    tabuVars.tabu_is_pause = False
+    tabuVars.tabu_is_switching = False
+    tabuVars.tabu_is_raeacting = False
 
-    tabu_points_to_win = 60
+    tabuVars.tabu_start_team_num = 0
+    tabuVars.tabu_is_chance = False
+    tabuVars.tabu_was_chance = False
+    tabuVars.tabu_chance_team = 1

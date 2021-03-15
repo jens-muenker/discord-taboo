@@ -1,3 +1,4 @@
+from frosch2010_Tabu_settings import tabu_settings
 from random import shuffle
 from random import randrange
 import asyncio
@@ -13,13 +14,24 @@ import frosch2010_Tabu_manage_timer as fMT
 
 #-----------------------------------------------------
 
-async def on_Start_Game(msg, tabuVars, tabuSettings, tabuLanguage, client):
+async def on_Start_Game(isRevengeStart, msg, tabuVars, tabuSettings, tabuLanguage, client):
 
     tabuVars.tabu_is_running = True
 
     #Start-Ausgabe
     fCU.log_In_Console("{} started game...".format(msg.author.name), "ON-START", "inf")
-    await fDU.send_Message_To_Channel(tabuLanguage.tabu_user_started_game.replace("[USER_NAME]", str(msg.author.name)), [msg.channel])
+
+    if not isRevengeStart:
+        await fDU.send_Message_To_Channel(tabuLanguage.tabu_user_started_game.replace("[USER_NAME]", str(msg.author.name)), [msg.channel])
+
+
+
+    if isRevengeStart:
+        tabuVars.tabu_points_to_win = tabuVars.tabu_last_points_to_win
+
+    else:
+        tabuVars.tabu_points_to_win = tabu_settings.tabu_default_points_to_win
+
 
 
     #Abfrage, ob Points-To-WIN veraendert werden soll
@@ -36,6 +48,9 @@ async def on_Start_Game(msg, tabuVars, tabuSettings, tabuLanguage, client):
         except:
             
             fCU.log_In_Console("{} cant set points to win. Cant parse point-count from arguments.".format(msg.author.name), "ON-START", "err")
+
+
+    tabuVars.tabu_last_points_to_win = tabuVars.tabu_points_to_win
 
 
     #Loesche Nachrichten in Team-Channels
@@ -68,12 +83,14 @@ async def on_Start_Game(msg, tabuVars, tabuSettings, tabuLanguage, client):
     tabuVars.tabu_player_list_team_1 = tabuVars.tabu_player_list_all[:int(team_size)]
     tabuVars.tabu_player_list_team_2 = tabuVars.tabu_player_list_all[int(team_size):]
 
-    await fTOF.print_Who_Which_Team(tabuVars, msg.channel)
+    if not isRevengeStart:
+        await fTOF.print_Who_Which_Team(tabuVars, msg.channel)
 
     #Start Team bestimmen
     fCU.log_In_Console("Set start team...", "ON-START", "inf")
 
     tabuVars.tabu_guessing_team_num = randrange(0,1)
+    tabuVars.tabu_start_team_num = tabuVars.tabu_guessing_team_num
 
 
     #Zeit pro Runde setzen + Timer starten

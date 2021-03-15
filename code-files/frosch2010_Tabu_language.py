@@ -1,3 +1,6 @@
+from frosch2010_Tabu_settings import tabu_settings
+
+
 class tabu_language:
 
     tabu_wrong_arguments = ""
@@ -19,6 +22,13 @@ class tabu_language:
     tabu_search_for_new_terms_finished = ""
 
     tabu_false_term_format = ""
+    tabu_false_edit_term_format = ""
+    tabu_edit_term_not_exist = ""
+    tabu_edit_term_has_an_editor = ""
+    tabu_edit_description = ""
+    tabu_edit_word = ""
+    tabu_edit_delete_word = ""
+    tabu_edit_sure_delete_card = ""
 
     tabu_save = ""
 
@@ -47,3 +57,9 @@ class tabu_language:
     tabu_user_kicked = ""
 
     tabu_shutdown_bot = ""
+
+    tabu_revenge_asking = ""
+    tabu_revenge_starting = ""
+    tabu_revenge_canceled = ""
+
+    tabu_same_chance =""

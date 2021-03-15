@@ -42,6 +42,7 @@ def load_settings(tabuSettings, file_path=None):
                 tabuSettings.tabu_default_save_terms = bool(data["General-Settings"]["Default-Save-Terms"])
                 tabuSettings.tabu_save_after_auto_add = bool(data["General-Settings"]["Save after Auto-ADD"])
                 tabuSettings.tabu_save_after_game = bool(data["General-Settings"]["Save after Game"])
+                tabuSettings.tabu_message_auto_delete = int(data["General-Settings"]["Message-Auto-Delete-Time"])
 
                 tabuSettings.tabu_default_points_to_win = int(data["Game-Settings"]["Default-Points-To-Win"])
                 tabuSettings.tabu_round_lenght = int(data["Game-Settings"]["Round-Lenght"])

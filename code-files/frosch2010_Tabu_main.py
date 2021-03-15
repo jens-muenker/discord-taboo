@@ -7,6 +7,7 @@ import frosch2010_Tabu_language
 import frosch2010_Tabu_variables
 import frosch2010_Tabu_settings
 import frosch2010_Console_Utils as fCU
+import frosch2010_Class_Utils as fCLU
 import frosch2010_Tabu_On_Start_Game as fTOSG
 import frosch2010_Discord_Utils as fDU
 import frosch2010_Tabu_On_Reaction as fTOREA
@@ -15,6 +16,8 @@ import frosch2010_Tabu_manage_terms as fTMT
 import frosch2010_Tabu_load_language as fTLL
 import frosch2010_Tabu_On_Ready as fTOR
 import frosch2010_Tabu_other_funtions as fTOF
+import frosch2010_Tabu_edit_system_functions as fTESF
+import frosch2010_Tabu_revenge_timer as fTRT
 
 
 #-----------------------------------------------------
@@ -68,15 +71,147 @@ async def on_message(msg):
     if msg.author.bot:
         return
 
-    if not msg.content.lower().startswith("!tabu"):
 
-        #Automatisch Karte hinzufuegen
-        if msg.channel.id == tabuSettings.tabu_channelID_add_terms:
+    #-----------------------------------------------------------
+    #Edit - COMMAND
+    if msg.channel.id == tabuSettings.tabu_channelID_add_terms:
+
+        if msg.content.lower().startswith("!edit"):
+
+            edit_array = str(msg.content).split(" ")
+
+            if len(edit_array) < 2:
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_false_edit_term_format.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel], tabuSettings.tabu_message_auto_delete)
+                return
+
+            edit_term = str(msg.content).replace(edit_array[0] + " ", "")
+
+            if edit_term not in tabuVars.lst_Terms_already_loaded:
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_edit_term_not_exist.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel], tabuSettings.tabu_message_auto_delete)
+                fCU.log_In_Console("{} tried to edit a term, which does not exist.".format(str(msg.author.name)), "EDIT-COM", "inf")
+                return
+
+
+            if edit_term in tabuVars.tabu_edit_term_list:
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_edit_term_has_an_editor.replace("[USER_ID]", "<@" + str(msg.author.id) + ">").replace("[EDITOR_ID]", "<@" + str(tabuVars.tabu_edit_term_list[edit_array[1]]) + ">"), [msg.channel], tabuSettings.tabu_message_auto_delete)
+                fCU.log_In_Console("{} tried to edit a term that is already edited by someone else.".format(str(msg.author.name)), "EDIT-COM", "inf")
+                return
+
+
+            card_subject = edit_term
+            card_subject_words = tabuVars.tabu_card_list[tabuVars.lst_Terms_already_loaded.index(edit_term)].split(":")[1]
+
+
+            botMessage = await fTESF.send_edit_embed_msg(card_subject, card_subject_words, tabuLanguage, msg.channel)
+
+
+            tabuVars.tabu_edit_term_list[card_subject] = msg.author.id
+            tabuVars.tabu_edit_messages_list[msg.author.id] = [[botMessage], msg]           
+
+            return
+
+        else:
+
+            #-------------------------------------------------------
+            #Edit word from term
+            if "=:=" in str(msg.content):
+
+                if msg.author.id in tabuVars.tabu_edit_word_list:
+                
+                    term = str(tabuVars.tabu_edit_word_list[msg.author.id])
+                    word_edit = str(msg.content).split("=:=")
+                    index = tabuVars.lst_Terms_already_loaded.index(term)
+                    userID = msg.author.id
+
+
+                    tabuVars.tabu_card_list[index] = str(tabuVars.tabu_card_list[index]).replace(word_edit[0], word_edit[1])
+                    tabuVars.lst_Terms_already_loaded[index] = tabuVars.tabu_card_list[index].split(":")[0]
+
+                    
+                    await msg.add_reaction("✅")
+
+
+                    del tabuVars.tabu_edit_word_list[userID]
+                    fTMT.save_terms(tabuVars)
+
+
+                    card_subject_words = tabuVars.tabu_card_list[index].split(":")[1]
+
+                    botMessage = await fTESF.send_edit_embed_msg(term, card_subject_words, tabuLanguage, msg.channel)
+
+
+                    for msg in tabuVars.tabu_edit_messages_list[userID][0]:
+                        try:
+                            await msg.delete()
+                        except:
+                            fCU.log_In_Console("Failed to delete edit message.", "MAIN-MSG", "err")
+
+
+                    tabuVars.tabu_edit_messages_list[userID][0] = [botMessage]
+
+                else:
+                    await msg.add_reaction("❌")
+
+                return
+
+            #-------------------------------------------------------
+            #Remove word from term
+            if msg.author.id in tabuVars.tabu_edit_delete_word_list:
+
+                term = str(tabuVars.tabu_edit_delete_word_list[msg.author.id])
+                index = tabuVars.lst_Terms_already_loaded.index(term)
+                userID = msg.author.id
+
+                if msg.content in tabuVars.tabu_card_list[index]:
+                    await msg.add_reaction("🗑")
+                    fCU.log_In_Console("{} removed a word from the term {}.".format(str(msg.author.name), str(term)), "MAIN-MSG", "inf")
+
+                else:
+                    await msg.add_reaction("❌")
+                    fCU.log_In_Console("{} tried to remove a word from the term {}, which does not exist.".format(str(msg.author.name), str(term)), "MAIN-MSG", "inf")
+
+
+                if tabuVars.tabu_card_list[index] in tabuVars.tabu_card_pool:
+                    tabuVars.tabu_card_pool = str(tabuVars.tabu_card_list[index]).replace("," + msg.content, "").replace(msg.content, "")
+
+                tabuVars.tabu_card_list[index] = str(tabuVars.tabu_card_list[index]).replace("," + msg.content, "").replace(msg.content, "")
+
+
+                del tabuVars.tabu_edit_delete_word_list[userID]
+
+                for msg in tabuVars.tabu_edit_messages_list[userID][0]:
+                    try:
+                        await msg.delete()
+                    except:
+                        fCU.log_In_Console("Failed to delete edit message.", "MAIN-MSG", "err")
+
+
+                fTMT.save_terms(tabuVars)
+
+
+
+                #Send new message for editing
+                card_subject_words = tabuVars.tabu_card_list[index].split(":")[1]
+
+                botMessage = await fTESF.send_edit_embed_msg(term, card_subject_words, tabuLanguage, msg.channel)
+
+                tabuVars.tabu_edit_messages_list[userID][0] = [botMessage]
+
+                return
+
+
+            #-----------------------------------------------------------------------------------------------------------------------
+            #Remove user if he previously wanted to edit a term
+            await fTESF.remove_user_from_edit_list_if_possible(msg.author, tabuVars)
+
+
+            #-----------------------------------------------------------------------------------------------------------------------
+            #Check if the user has added a word to a term or added a new term
 
             term_array = str(msg.content).replace(": ", ":").replace(", ", ",").split(":")
 
             if len(term_array) < 2:
-                await fDU.send_Message_To_Channel(tabuLanguage.tabu_false_term_format.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel], 3)
+                await fDU.send_Message_To_Channel(tabuLanguage.tabu_false_term_format.replace("[USER_ID]", "<@" + str(msg.author.id) + ">"), [msg.channel], tabuSettings.tabu_message_auto_delete)
                 return
 
             if not term_array[0] in tabuVars.lst_Terms_already_loaded:
@@ -86,6 +221,8 @@ async def on_message(msg):
                 tabuVars.tabu_card_list.append(str(msg.content).replace(": ", ":").replace(", ", ","))
                 tabuVars.tabu_card_pool.append(str(msg.content).replace(": ", ":").replace(", ", ","))
 
+
+                await msg.add_reaction("🆕")
                 fCU.log_In_Console("{} added a new term.".format(str(msg.author.name)), "AUTO-ADD", "inf")
 
             else:
@@ -106,12 +243,21 @@ async def on_message(msg):
 
                 tabuVars.tabu_card_list[index] = new_term[:]
 
+
+                await msg.add_reaction("➕")
                 fCU.log_In_Console("{} add words to a term.".format(str(msg.author.name)), "AUTO-ADD", "inf")
 
             if tabuSettings.tabu_save_after_auto_add:
 
                 fTMT.save_terms(tabuVars)
 
+        return
+    
+    #-----------------------------------------------------------------------------------------------------------------------
+    #Check messagesfor commands
+
+
+    if not msg.content.lower().startswith("!tabu"):
         return
 
 
@@ -154,6 +300,34 @@ async def on_message(msg):
         await client.logout()
 
 
+    #----------------------------------------------------------------------------------------------
+    #TEMP - REVANCHE - COMMAND
+    elif args[1].lower() == "revanche" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_2):
+
+        print("1")
+        tabuVars.tabu_revenge_question = True
+        tabuVars.tabu_revenge_asking_player_msg = msg
+        tabuVars.tabu_revenge_time = tabuSettings.tabu_revenge_time
+
+        team_channels = [client.get_channel(tabuSettings.tabu_channelID_team_1), client.get_channel(tabuSettings.tabu_channelID_team_2)]
+
+        print("2")
+        for team in team_channels:
+
+            botMessage = await team.send(tabuLanguage.tabu_revenge_asking.replace("[ASKING_USER_NAME]", tabuVars.tabu_revenge_asking_player_msg.author.name).replace("[REMAINING_TIME]", str(tabuVars.tabu_revenge_time)))
+
+            await botMessage.add_reaction("✅")
+            await botMessage.add_reaction("❌")
+
+            tabuVars.tabu_revenge_msgs.append(botMessage)
+
+        print("3")
+        fCLU.Timer(1, fTRT.revenge_timer, [tabuVars, tabuSettings, tabuLanguage, client])
+        print("4")
+
+        return
+
+
     #-------------------------------------------------------------------------------------
     #Join Tabu - COMMAND
     elif args[1].lower() == "join" and msg.channel.id == tabuSettings.tabu_channelID_join:
@@ -185,7 +359,7 @@ async def on_message(msg):
 
     #--------------------------------------------------------------------------------------------------------------------------------------------------
     #Pause - COMMAND
-    elif args[1].lower() == "pause" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_1):
+    elif args[1].lower() == "pause" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_2):
 
         if tabuVars.tabu_is_running:
 
@@ -214,7 +388,7 @@ async def on_message(msg):
 
     #----------------------------------------------------------------------------------------------------------------------------------------------------
     #Unpause - COMMAND
-    elif args[1].lower() == "unpause" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_1):
+    elif args[1].lower() == "unpause" and (msg.channel.id == tabuSettings.tabu_channelID_team_1 or msg.channel.id == tabuSettings.tabu_channelID_team_2):
 
         if tabuVars.tabu_is_running:
 
@@ -255,7 +429,7 @@ async def on_message(msg):
 
             if len(tabuVars.tabu_player_list_all) >= tabuSettings.tabu_min_players:
 
-                await fTOSG.on_Start_Game(msg, tabuVars, tabuSettings, tabuLanguage, client)
+                await fTOSG.on_Start_Game(False, msg, tabuVars, tabuSettings, tabuLanguage, client)
 
             else:
 
@@ -451,22 +625,6 @@ async def on_reaction_add(reaction, user):
 
     if user.bot:
         return
-
-    if not tabuVars.tabu_is_running:
-        return
-
-
-    #Bug (Doppelte Reaktionen) vermeiden
-    if tabuVars.tabu_is_raeacting:
-        return
-
-    
-    #Bug vermeiden
-    if tabuVars.tabu_current_time <=1 and tabuVars.tabu_is_switching == False:
-        return
-
-    
-    tabuVars.tabu_is_raeacting = True
 
     await fTOREA.on_Reaction_Add(reaction, user, tabuVars, tabuSettings, tabuLanguage, client)
 
