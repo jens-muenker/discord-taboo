@@ -5,6 +5,8 @@ This is now possible with this Python Discord bot.
 
 Define own terms or let the server users add their own terms. Everything is possible. Easy to understand and simple to implement.
 
+[Not the right game? Try Color-Cards for Discord!](https://github.com/Frosch2010/discord-color-cards)
+
 ## Features
 
 <img src="https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/explainer_react.png" height="290" width="423" align="right">
