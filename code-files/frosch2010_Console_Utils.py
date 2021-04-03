@@ -1,7 +1,10 @@
 from datetime import datetime
 from termcolor import colored, cprint
+import colorama
 
-def log_In_Console(msg, func_name, type):
+def log_In_Console(msg, func_name, type=None):
+
+    colorama.init()
 
     dateTimeObj = datetime.now()
     current_time = dateTimeObj.strftime("%d.%m.%Y %H:%M:%S")
