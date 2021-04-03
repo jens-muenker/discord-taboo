@@ -42,6 +42,7 @@ Define own terms or let the server users add their own terms. Everything is poss
 * discord 1.5.X
 * matplotlib
 * termcolor
+* colorama
 
 **Everything available?**
 1. Download all files and copy all into the same folder
