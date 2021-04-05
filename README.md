@@ -95,6 +95,19 @@ The Edit system is operated with the help of Reactions. The following emojis are
 ✅ = Press this reaction as soon as you are done with the edit
 ```
 
+## Bot-Permissions
+
+The bot needs the following rights in each channel (Join, Admin etc.):
+* view_channel
+* send_messages
+
+In the team channels, the following rights are also required:
+* manage_messages
+* read_message_history
+* add_reactions
+* attach_files
+
+
 ## Settings-file
 
 ```
