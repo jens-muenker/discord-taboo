@@ -134,6 +134,24 @@ Switching-Lenght      = Time waited between team changes (Seconds)
 Min-Players           = Minimum number of players for the start
 ```
 
+## FAQ
+
+**1. What is the difference between term list and term pool?**
+
+term list contains all terms, while term pool contains only the terms that have not yet been "queried". If the term pool is empty, all terms will be copied from the term list.
+
+**2. Is it necessary to use the command "!tabu load cards"?**
+
+No. If there are already terms in the tabu-terms.txt before the start of the bot, they will be loaded automatically at startup.
+
+**3. What happens if I delete a term or the respective Discord message in the Add-Terms-Channel?**
+
+The deleting of the Discord message will not have any effect on the terms savcede by the bot. The bot only detects new messages.
+
+**4. How can I fix errors in the terms?**
+
+This can be done either via the edit function or via tabu-terms.txt. While editing the tabu-terms.txt, the bot must not be running, otherwise the changes will not be applied or will be overwritten with the old status when the bot is shut down.
+
 ## Wishes, Issues, Help needed?
 Make a pull request. :)
 
