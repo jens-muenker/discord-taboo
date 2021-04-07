@@ -31,7 +31,6 @@ Define own terms or let the server users add their own terms. Everything is poss
 
 * [Pause](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/PauseGame.png) and [unpause](https://github.com/Frosch2010/discord-taboo/blob/main/Screenshots/Waiting.png) the game between a team change
 
-
 ## Installation
 
 **What is needed?**
@@ -151,6 +150,10 @@ The deleting of the Discord message will not have any effect on the terms savced
 **4. How can I fix errors in the terms?**
 
 This can be done either via the edit function or via tabu-terms.txt. While editing the tabu-terms.txt, the bot must not be running, otherwise the changes will not be applied or will be overwritten with the old status when the bot is shut down.
+
+## Language information
+
+* Japanese language comma support "、" instead of ","
 
 ## Wishes, Issues, Help needed?
 Make a pull request. :)
