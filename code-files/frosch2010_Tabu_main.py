@@ -574,14 +574,14 @@ async def on_message(msg):
                 #Ueberpruefen, ob Card schon vorhanden
                 for message in messages:
 
-                    term_array = str(message.content).replace(": ", ":").replace(", ", ",").split(":")
+                    term_array = str(message.content).replace("、", ",").replace(": ", ":").replace(", ", ",").split(":")
 
                     if not term_array[0] in lst_Terms_already_loaded:
 
                         lst_Terms_already_loaded.append(term_array[0])
 
-                        tabuVars.tabu_card_list.append(str(message.content).replace(": ", ":").replace(", ", ","))
-                        tabuVars.tabu_card_pool.append(str(message.content).replace(": ", ":").replace(", ", ","))
+                        tabuVars.tabu_card_list.append(str(message.content).replace("、", ",").replace(": ", ":").replace(", ", ","))
+                        tabuVars.tabu_card_pool.append(str(message.content).replace("、", ",").replace(": ", ":").replace(", ", ","))
 
                         count_new_cards += 1
 
@@ -589,7 +589,7 @@ async def on_message(msg):
 
                         index = [tabuVars.tabu_card_list.index(card) for card in tabuVars.tabu_card_list if card.startswith(term_array[0])][0]
 
-                        term_content = term_array[1].split(",")
+                        term_content = term_array[1].replace("、", ",").split(",")
 
                         existing_term_content = tabuVars.tabu_card_list[index].split(":")[1]
 

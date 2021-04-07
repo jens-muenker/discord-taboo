@@ -25,10 +25,10 @@ def load_terms(tabuVars, file_path=None):
             json_term_pool = data["Term-Pool"].items()
 
             for key, value in json_term_list:
-                tabuVars.tabu_card_list.append(key + ":" + value)
+                tabuVars.tabu_card_list.append(key + ":" + str(value).replace("、", ","))
 
             for key, value in json_term_pool:
-                tabuVars.tabu_card_pool.append(key + ":" + value)
+                tabuVars.tabu_card_pool.append(key + ":" + str(value).replace("、", ","))
 
         fCU.log_In_Console("{} terms loaded in deck.".format(str(len(tabuVars.tabu_card_list))), "LOAD-TERMS", "inf")
         fCU.log_In_Console("{} terms loaded in pool.".format(str(len(tabuVars.tabu_card_pool))), "LOAD-TERMS", "inf")
@@ -45,6 +45,7 @@ def load_terms(tabuVars, file_path=None):
     else:
 
         fCU.log_In_Console("No terms-file found! Load terms from channel before you start playing.", "LOAD-TERMS", "war")
+
 
 
 def save_terms(tabuVars, file_path=None):
